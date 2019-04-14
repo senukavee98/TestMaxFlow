@@ -9,7 +9,7 @@ class MaxFlow
 
 
      static Random random = new Random();
-     static int V = random.nextInt(10) ; //Number of vertices in graph  -  6
+     static int V = 6 ; //Number of vertices in graph  -  6
 
     /* Returns true if there is a path from source 's' to sink
     't' in residual graph. Also fills parent[] to store the
@@ -142,7 +142,7 @@ class MaxFlow
         System.out.println();
         System.out.println(" ---------------------------------------------------- ");
         System.out.println("     The maximum possible flow is " +
-                m.fordFulkerson(newGraph, 0, 10));
+                m.fordFulkerson(newGraph, 0, 5));
         System.out.println(" ---------------------------------------------------- ");
 
 
