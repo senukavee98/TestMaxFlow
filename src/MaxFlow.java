@@ -9,7 +9,7 @@ class MaxFlow
 
 
      static Random random = new Random();
-     static int V = 6 ; //Number of vertices in graph  -  6
+     static int V = random.nextInt(10-4)+4 ; //Number of vertices in graph  -  6
 
     /* Returns true if there is a path from source 's' to sink
     't' in residual graph. Also fills parent[] to store the
@@ -49,12 +49,14 @@ class MaxFlow
         // If we reached sink in BFS starting from source, then
         // return true, else false
         return (visited[t] == true);
+
     }
 
     // Returns tne maximum flow from s to t in the given graph
-    int fordFulkerson(int graph[][], int s, int t)
+    int fordFulkerson(int graph[][], int s)
     {
         int u, v;
+        int t = V -1;
 
        /*  Create a residual graph and fill the residual graph
          with given capacities in the original graph as
@@ -113,15 +115,18 @@ class MaxFlow
     public static void main (String[] arg)
     {
 
-        int newGraph[][] = new int[V][V];
-        List list = new ArrayList();
         Random r = new Random();
+        int newGraph[][] = new int[V][V];
+
 
         for (int i =0; i<V ;i++){
+
             System.out.println("\n");
+            System.out.print("Path Num " + (i+1) + " : " );
             for (int j= 0;j<V;j++){
-                newGraph[i][j] = r.nextInt(20);
-                System.out.print("  ->  " + newGraph[i][j] );
+
+                newGraph[i][j] = r.nextInt(21);
+                System.out.print("  ->  " + newGraph[i][j]);
                 System.out.print("");
 
             }
@@ -137,14 +142,19 @@ class MaxFlow
         };*/
 
         MaxFlow m = new MaxFlow();
+        int value = r.nextInt(10-4)+4;
+        int sink = value;
 
         System.out.println();
         System.out.println();
+        System.out.println(" ---------------------------------------------------- ");
+        System.out.println(" Source Node : " + 0);
+        System.out.println(" Sink Node   : " + value);
+
         System.out.println(" ---------------------------------------------------- ");
         System.out.println("     The maximum possible flow is " +
-                m.fordFulkerson(newGraph, 0, 5));
+                m.fordFulkerson(newGraph, 0));
         System.out.println(" ---------------------------------------------------- ");
-
 
     }
 }
