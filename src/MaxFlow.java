@@ -1,7 +1,5 @@
-// Java program for implementation of Ford Fulkerson algorithm
 import java.util.*;
 import java.lang.*;
-import java.io.*;
 import java.util.LinkedList;
 
 class MaxFlow
@@ -9,12 +7,13 @@ class MaxFlow
 
 
      static Random random = new Random();
-     static int V = random.nextInt(10-4)+4 ; //Number of vertices in graph  -  6
+     static int V = random.nextInt(11-4)+4 ; //Number of vertices in graph  -  6
 
     /* Returns true if there is a path from source 's' to sink
     't' in residual graph. Also fills parent[] to store the
     path */
 
+    //Standard implementation of BFS
     boolean bfs(int rGraph[][], int s, int t, int parent[])
     {
         // Create a visited array and mark all vertices as not
@@ -132,18 +131,11 @@ class MaxFlow
             }
         }
 
-        // Let us create a graph shown in the above example
-       /* int graph[][] = new int[][] { {0, 16, 13, 0, 0, 0},
-                {0, 0, 10, 12, 0, 0},
-                {0, 4, 0, 0, 14, 0},
-                {0, 0, 9, 0, 0, 20},
-                {0, 0, 0, 7, 0, 4},
-                {0, 0, 0, 0, 0, 0}
-        };*/
 
         MaxFlow m = new MaxFlow();
-        int value = r.nextInt(10-4)+4;
-        int sink = value;
+
+        int value = r.nextInt(11-4)+4;
+        //int sink = value;
 
         System.out.println();
         System.out.println();
@@ -154,7 +146,13 @@ class MaxFlow
         System.out.println(" ---------------------------------------------------- ");
         System.out.println("     The maximum possible flow is " +
                 m.fordFulkerson(newGraph, 0));
+
         System.out.println(" ---------------------------------------------------- ");
+
+
+
+        //******************************************************************************************************//
+
 
     }
 }
